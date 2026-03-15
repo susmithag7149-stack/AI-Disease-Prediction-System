@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI Disease Prediction Dashboard</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+body{
+font-family: Arial;
+background:#0f172a;
+color:white;
+text-align:center;
+}
+
+.container{
+width:80%;
+margin:auto;
+}
+
+.card{
+background:#1e293b;
+padding:20px;
+margin:20px;
+border-radius:10px;
+}
+
+button{
+padding:10px 20px;
+background:#22c55e;
+border:none;
+color:white;
+font-size:16px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>AI Disease Prediction Dashboard</h1>
+
+<div class="container">
+
+<div class="card">
+
+<h3>Enter Symptoms</h3>
+
+<form action="/predict" method="post">
+
+Fever
+<select name="fever">
+<option value="1">Yes</option>
+<option value="0">No</option>
+</select>
+
+<br><br>
+
+Cough
+<select name="cough">
+<option value="1">Yes</option>
+<option value="0">No</option>
+</select>
+
+<br><br>
+
+Headache
+<select name="headache">
+<option value="1">Yes</option>
+<option value="0">No</option>
+</select>
+
+<br><br>
+
+Vomiting
+<select name="vomiting">
+<option value="1">Yes</option>
+<option value="0">No</option>
+</select>
+
+<br><br>
+
+<button type="submit">Predict Disease</button>
+
+</form>
+
+</div>
+
+<div class="card">
+
+<h3>Weekly Risk Analysis</h3>
+
+<canvas id="chart"></canvas>
+
+</div>
+
+</div>
+
+<script>
+
+const ctx = document.getElementById('chart');
+
+new Chart(ctx, {
+type: 'bar',
+data: {
+labels: ['Mon','Tue','Wed','Thu','Fri'],
+datasets: [{
+label: 'Health Risk',
+data: [12,19,3,5,2]
+}]
+}
+});
+
+</script>
+
+</body>
+</html>
